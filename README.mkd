@@ -4,7 +4,6 @@ cafe24 sms 발송 서비스(유료) ruby wrapper. 필수 parameter를 넘겨서 
 
 Installation
 ------------
-아직 안 올림
 
 ``` sh
 gem install cafe24_sms
