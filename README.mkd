@@ -10,16 +10,11 @@ gem install cafe24_sms
 
 Usage
 -----
-**sms 발송 하기**
 ``` ruby
 require 'cafe24_sms'
 
 Cafe24.send_sms(:user_id => "user_id", :secure => "secure", :sphone1 => "011", :sphone2 => "9999", :sphone3 => "0000", :rphone => "011-9090-9090", :msg => "hello world!")
-```
 
-**기본값 세팅 후 발송**
-``` ruby
-require 'cafe24_sms'
 
 Cafe24Sms.configure do |config|
   config.user_id = "user_id"
@@ -29,22 +24,8 @@ Cafe24Sms.configure do |config|
   config.sphone3 = "0000"
 end
 
-# rphone은 문자 받을 핸드폰 번호, '-' 구분 꼭 있어야 함
+
 Cafe24.send_sms(:rphone => "011-9090-9090", :msg => "hello world!")
-```
 
-**발송 예약**
-``` ruby
-require 'cafe24_sms'
-
-Cafe24Sms.configure do |config|
-  config.user_id = "user_id"
-  config.secure = "secure"
-  config.sphone1 = "011"
-  config.sphone2 = "9999"
-  config.sphone3 = "0000"
-end
-
-# 2011년 5월 1일, 오후 5시 30분 예약 발송
 Cafe24.send_sms(:rphone => "011-9090-9090", :msg => "hello world!", :rdate => "20110501", :rtime => "173000")
 ```
