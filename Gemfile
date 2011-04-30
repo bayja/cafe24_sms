@@ -1,5 +1,4 @@
 source "http://rubygems.org"
 
-gem 'rspec'
-gem 'autotest'
-gem 'webmock'
+# Specify your gem's dependencies in cafe24_sms.gemspec
+gemspec
