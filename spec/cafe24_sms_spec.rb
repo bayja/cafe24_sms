@@ -30,6 +30,6 @@ describe Cafe24Sms, ".send" do
   it "should send_sms" do
     Cafe24Sms.send_sms(:rphone => "011-9988-4928", :msg => "hello world")
     WebMock.should have_requested(:post, Cafe24Sms::Configuration::SMS_URL)
-      .with(:body => "sms_url=http%3a%2f%2fsslsms.cafe24.com%2fsms_sender.php&user_id=boribook&secure=__my_secure_key__&sphone1=011&sphone2=0000&sphone3=0000&rphone=011-9988-4928&msg=hello%20world")
+      .with(:body => "sms_url=https%3a%2f%2fsslsms.cafe24.com%2fsms_sender.php&user_id=boribook&secure=__my_secure_key__&sphone1=011&sphone2=0000&sphone3=0000&rphone=011-9988-4928&msg=hello%20world")
   end
 end

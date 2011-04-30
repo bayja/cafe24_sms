@@ -4,7 +4,15 @@ require 'uri'
 module Cafe24Sms
   module SendSms
     def send_sms(options)
-      Net::HTTP.post_form(URI.parse(Configuration::SMS_URL), _form_data(options))
+      url = URI.parse(Configuration::SMS_URL)
+      req = Net::HTTP::Post.new(url.path)
+      req.set_form_data(_form_data(options), '&')
+
+      http_session = Net::HTTP.new(url.host, url.port)
+      http_session.use_ssl = true
+      http_session.start {|http| http.request(req)}
+
+      # Net::HTTP.post_form(URI.parse(Configuration::SMS_URL), _form_data(options))
     end
     
     def _form_data(options)
