@@ -13,9 +13,11 @@ Usage
 ``` ruby
 require 'cafe24_sms'
 
+# sms 발송
 Cafe24.send_sms(:user_id => "user_id", :secure => "secure", :sphone1 => "011", :sphone2 => "9999", :sphone3 => "0000", :rphone => "011-9090-9090", :msg => "hello world!")
 
 
+# 기본값 설정 가능
 Cafe24Sms.configure do |config|
   config.user_id = "user_id"
   config.secure = "secure"
@@ -24,8 +26,9 @@ Cafe24Sms.configure do |config|
   config.sphone3 = "0000"
 end
 
-
 Cafe24.send_sms(:rphone => "011-9090-9090", :msg => "hello world!")
 
+
+# 예약 발송
 Cafe24.send_sms(:rphone => "011-9090-9090", :msg => "hello world!", :rdate => "20110501", :rtime => "173000")
 ```
