@@ -1,6 +1,6 @@
 Cafe24 SMS 발송 Ruby wrapper
 ==========================
-cafe24 sms 발송 서비스(유료) ruby wrapper. 필수 parameter를 넘겨서 sms 발송하는 기능만 있음(v. 0.0.1)
+cafe24 sms 발송 서비스(유료) ruby wrapper. 필수 parameter를 넘겨서 sms 발송하는 기능만 있음
 
 Installation
 ------------
