@@ -18,10 +18,10 @@ module Cafe24Sms
     def _form_data(options)
       { :sms_url => Configuration::SMS_URL,
         :user_id => self.user_id,
-        :secure => self.secure_key,
-        :sphone1 => self.sender.split("-")[0],
-        :sphone2 => self.sender.split("-")[1],
-        :sphone3 => self.sender.split("-")[2]
+        :secure => self.secure,
+        :sphone1 => self.sphone1,
+        :sphone2 => self.sphone2,
+        :sphone3 => self.sphone3
       }.merge(options)
     end
   end
