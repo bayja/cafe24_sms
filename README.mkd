@@ -1,10 +1,9 @@
 Cafe24 SMS 발송 Ruby wrapper
 ==========================
-cafe24 sms 발송 서비스(유료) ruby wrapper. 필수 parameter를 넘겨서 sms 발송하는 기능만 있음(v. 0.0.1)
+cafe24 sms 발송 서비스(유료) ruby wrapper. sms 발송하는 기능만 있음
 
 Installation
 ------------
-아직 안 올림
 
 ``` sh
 gem install cafe24_sms
@@ -12,11 +11,12 @@ gem install cafe24_sms
 
 Usage
 -----
+
 ``` ruby
 require 'cafe24_sms'
 
 # sms 발송
-Cafe24.send_sms(:user_id => "user_id", :secure => "secure", :sphone1 => "011", :sphone2 => "9999", :sphone3 => "0000", :rphone => "011-9090-9090", :msg => "hello world!")
+Cafe24Sms.send_sms(:user_id => "user_id", :secure => "secure", :sphone1 => "011", :sphone2 => "9999", :sphone3 => "0000", :rphone => "011-9090-9090", :msg => "hello world!")
 
 
 # 기본값 설정 가능
@@ -28,9 +28,9 @@ Cafe24Sms.configure do |config|
   config.sphone3 = "0000"
 end
 
-Cafe24.send_sms(:rphone => "011-9090-9090", :msg => "hello world!")
+Cafe24Sms.send_sms(:rphone => "011-9090-9090", :msg => "hello world!")
 
 
-# 예약 발송
-Cafe24.send_sms(:rphone => "011-9090-9090", :msg => "hello world!", :rdate => "20110501", :rtime => "173000")
+# 예약 발송(2011년 5월 1일, 17시 30분)
+Cafe24Sms.send_sms(:rphone => "011-9090-9090", :msg => "hello world!", :rdate => "20110501", :rtime => "173000")
 ```
