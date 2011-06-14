@@ -11,8 +11,6 @@ module Cafe24Sms
       http_session = Net::HTTP.new(url.host, url.port)
       http_session.use_ssl = true
       http_session.start {|http| http.request(req)}
-
-      # Net::HTTP.post_form(URI.parse(Configuration::SMS_URL), _form_data(options))
     end
     
     def _form_data(options)
@@ -23,6 +21,11 @@ module Cafe24Sms
         :sphone2 => self.sphone2,
         :sphone3 => self.sphone3
       }.merge(options)
+    end
+    
+    def remaining_sms
+      auth_data = {:user_id => self.user_id, :secure => self.secure}
+      Net::HTTP.post_form(URI.parse(Configuration::SMS_REMAIN_URL), auth_data)
     end
   end
 end

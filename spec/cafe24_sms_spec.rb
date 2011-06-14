@@ -22,6 +22,7 @@ end
 describe Cafe24Sms, ".send" do
   before :each do 
     stub_request(:post, Cafe24Sms::Configuration::SMS_URL)
+    stub_request(:post, Cafe24Sms::Configuration::SMS_REMAIN_URL)
   end
 
   it 'should generate form_data with essential data' do
@@ -43,5 +44,11 @@ describe Cafe24Sms, ".send" do
     Cafe24Sms.send_sms(:rphone => "011-9988-9988", :msg => "hello world")
     WebMock.should have_requested(:post, Cafe24Sms::Configuration::SMS_URL)
       .with(:body => "sms_url=https%3a%2f%2fsslsms.cafe24.com%2fsms_sender.php&user_id=boribook&secure=__my_secure__&sphone1=011&sphone2=0000&sphone3=0001&rphone=011-9988-9988&msg=hello%20world")
+  end
+  
+  it 'should check remaining sms count' do
+    Cafe24Sms.remaining_sms
+    WebMock.should have_requested(:post, Cafe24Sms::Configuration::SMS_REMAIN_URL)
+      .with(:body => "user_id=boribook&secure=__my_secure__")
   end
 end
